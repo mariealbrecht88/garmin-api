@@ -82,3 +82,5 @@ This code is ported as fastAPI from [python-garminconnect](https://github.com/cy
 - **Endpoint**: `/get_previous_day_steps`
 - **Method**: `GET`
 - **Description**: Fetches the steps data for the previous day.
+- **Parameters**:
+  - `date` (optional): The date for which to fetch the steps data. Defaults to the previous day.
