@@ -80,6 +80,14 @@ async def get_activities(start: int = 0, limit: int = 100, api: Garmin = Depends
 async def get_last_activity(api: Garmin = Depends(get_garmin_api)):
     return {"last_activity": api.get_last_activity()}
 
+
+@app.get("/get_previous_day_steps")
+async def get_previous_day_steps(api: Garmin = Depends(get_garmin_api)):
+    previous_day = today - datetime.timedelta(days=1)
+    steps_data = api.get_daily_steps(previous_day.isoformat(), previous_day.isoformat())
+    return {"previous_day_steps": steps_data}
+
+
 # Add more routes here for other functionalities...
 
 @app.get("/")
